@@ -1,0 +1,9 @@
+
+{
+  "name": "YESAPP SiApp21",
+  "description": "Diamond Hub Strategico per Telegram",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

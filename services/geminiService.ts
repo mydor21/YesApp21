@@ -6,9 +6,9 @@ export const getCoachResponse = async (userMessage: string, history: Message[], 
   const apiKey = process.env.API_KEY;
   if (!apiKey) return "ERRORE: API_KEY non configurata nel sistema.";
 
+  // Nuova istanza ad ogni chiamata per garantire l'uso della chiave corretta
   const ai = new GoogleGenAI({ apiKey });
   
-  // Creazione report sintetico della rete per il contesto AI
   const networkReport = networkInfo
     .filter(ibo => (ibo.vitalSigns.groupPV || 0) > 0)
     .map(ibo => `LEADER: ${ibo.name} (ID: ${ibo.id}) - VPG: ${ibo.vitalSigns.groupPV}, BBS: ${ibo.vitalSigns.bbsTickets}, WES: ${ibo.vitalSigns.wesTickets}, CEP: ${ibo.vitalSigns.hasCEP ? 'SI' : 'NO'}`)
@@ -30,7 +30,7 @@ export const getCoachResponse = async (userMessage: string, history: Message[], 
         3. Identifica sempre i "motori in profondità" che stanno spingendo.
         4. Parla di "bilanciamento tra Sponsor e Profondità".
         5. Chiudi ogni analisi con: 'ANALISI STRATEGICA DIAMOND HUB - Protocollo Carmelo 3.0. Consulta il tuo Upline per azione immediata.'`,
-        thinkingConfig: { thinkingBudget: 16000 }
+        thinkingConfig: { thinkingBudget: 32768 }
       },
     });
 
@@ -71,4 +71,3 @@ export const suggestNewGoal = async (prompt: string) => {
     throw error;
   }
 };
-

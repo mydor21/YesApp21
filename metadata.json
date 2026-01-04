@@ -1,9 +1,13 @@
 
 {
-  "name": "YESAPP SiApp21",
-  "description": "Diamond Hub Strategico per Telegram",
+  "name": "YESAPP | Success Accelerator",
+  "short_name": "YESAPP",
+  "description": "Diamond Hub Strategico per la gestione della rete N21.",
   "requestFramePermissions": [
     "camera",
     "microphone"
-  ]
+  ],
+  "orientation": "portrait",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a"
 }
